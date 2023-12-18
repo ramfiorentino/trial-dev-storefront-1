@@ -4,6 +4,7 @@ import {Aside} from '~/components/Aside';
 import {Footer} from '~/components/Footer';
 import {Header, HeaderMenu} from '~/components/Header';
 import {CartMain} from '~/components/Cart';
+import WelcomeSection from './WelcomeSection'
 import {
   PredictiveSearchForm,
   PredictiveSearchResults,
@@ -19,7 +20,10 @@ export function Layout({cart, children = null, footer, header, isLoggedIn}) {
       <SearchAside />
       <MobileMenuAside menu={header?.menu} shop={header?.shop} />
       {header && <Header header={header} cart={cart} isLoggedIn={isLoggedIn} />}
-      <main>{children}</main>
+      <main>hola
+        <WelcomeSection />
+        {children}
+        </main>
       <Suspense>
         <Await resolve={footer}>
           {(footer) => <Footer menu={footer?.menu} shop={header?.shop} />}
