@@ -1,6 +1,9 @@
 import {Await, NavLink} from '@remix-run/react';
 import {Suspense} from 'react';
 import {useRootLoaderData} from '~/root';
+import tiendaEuBtn from './../../public/custom-buttons/button-lafat2.png'
+import tiendaClBtn from './../../public/custom-buttons/button-lafat2.png'
+
 
 /**
  * @param {HeaderProps}
@@ -9,8 +12,8 @@ export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
   return (
     <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+      <NavLink prefetch="intent" to="/" className="brand-logo">
+        <img src="logo-lafat.png"/>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -42,23 +45,13 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
 
   return (
     <nav className={className} role="navigation">
-      {viewport === 'mobile' && (
-        <NavLink
-          end
-          onClick={closeAside}
-          prefetch="intent"
-          style={activeLinkStyle}
-          to="/"
-        >
-          Home
-        </NavLink>
-      )}
+      
       {(menu || FALLBACK_HEADER_MENU).items.map((item) => {
         if (!item.url) return null;
 
         // if the url is internal, we strip the domain
         const url =
-          item.url.includes('myshopify.com') ||
+        //  item.url.includes('myshopify.com') ||
           item.url.includes(publicStoreDomain) ||
           item.url.includes(primaryDomainUrl)
             ? new URL(item.url).pathname
@@ -75,8 +68,12 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
           >
             {item.title}
           </NavLink>
-        );
+        ); 
       })}
+
+      <a className="header-menu-item" href="#footer" id="footer-link">
+        CONTACTO 
+      </a>
     </nav>
   );
 }
@@ -88,9 +85,7 @@ function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? 'Account' : 'Sign in'}
-      </NavLink>
+      <User/>
       <SearchToggle />
       <CartToggle cart={cart} />
     </nav>
@@ -105,15 +100,39 @@ function HeaderMenuMobileToggle() {
   );
 }
 
+function User() {
+  //{isLoggedIn ? 'Account' : 'Sign in'}
+  return (
+    <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
+    <div className='cart-badge'>
+    <img src="user-circle-svgrepo-com.svg"/>
+    </div>
+      </NavLink>
+  );
+}
+
 function SearchToggle() {
-  return <a href="#search-aside">Search</a>;
+  return (
+  <a href="#search-aside">
+    <div className='cart-badge'>
+    <img src="search-alt-2-svgrepo-com.svg"/>
+    </div>
+  </a>
+  );
 }
 
 /**
  * @param {{count: number}}
  */
 function CartBadge({count}) {
-  return <a href="#cart-aside">Cart {count}</a>;
+  return (
+  <a href="#cart-aside">
+    <div className='cart-badge'>
+    <img src="cart-smile-svgrepo-com.svg"/>
+    <div className='cart-count'>{count}</div>
+    </div>
+  </a>
+  )
 }
 
 /**

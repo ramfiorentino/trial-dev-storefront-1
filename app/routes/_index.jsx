@@ -2,6 +2,7 @@ import {defer} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
+import button from '../../public/custom-buttons/button-lafat7.png';
 
 /**
  * @type {MetaFunction}
@@ -25,9 +26,11 @@ export async function loader({context}) {
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
+
+  // <FeaturedCollection collection={data.featuredCollection} />
+
   return (
     <div className="home">
-      <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
@@ -63,13 +66,18 @@ function FeaturedCollection({collection}) {
  */
 function RecommendedProducts({products}) {
   return (
-    <div className="recommended-products">
-      <h2>Recommended Products</h2>
-      <Suspense fallback={<div>Loading...</div>}>
+    <div id='recommended-prod' className="recommended-products">
+     <button className='custom-button'><img src={button}/></button>
+      <section id="sectionPin">
+                <div class="pin-wrap-sticky">
+                  <div class="pin-wrap">
+                  <Suspense fallback={<div>Loading...</div>}>
         <Await resolve={products}>
           {({products}) => (
             <div className="recommended-products-grid">
+              
               {products.nodes.map((product) => (
+                <div className='product-container'>
                 <Link
                   key={product.id}
                   className="recommended-product"
@@ -85,12 +93,16 @@ function RecommendedProducts({products}) {
                     <Money data={product.priceRange.minVariantPrice} />
                   </small>
                 </Link>
+                </div>
               ))}
+
             </div>
           )}
         </Await>
       </Suspense>
-      <br />
+                  </div>
+                </div>
+              </section>
     </div>
   );
 }
