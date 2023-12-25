@@ -1,8 +1,6 @@
 import {Await, NavLink} from '@remix-run/react';
 import {Suspense} from 'react';
 import {useRootLoaderData} from '~/root';
-import tiendaEuBtn from './../../public/custom-buttons/button-lafat2.png'
-import tiendaClBtn from './../../public/custom-buttons/button-lafat2.png'
 
 
 /**
@@ -33,6 +31,8 @@ export function Header({header, isLoggedIn, cart}) {
  * }}
  */
 export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
+
+
   const {publicStoreDomain} = useRootLoaderData();
   const className = `header-menu-${viewport}`;
 

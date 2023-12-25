@@ -1,6 +1,6 @@
 import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/root';
-import img1 from '../../public/custom-buttons/button-lafat1.png'
+import img1 from '../../public/custom-buttons/button-lafat1.png';
 import img2 from '../../public/custom-buttons/button-lafat2.png';
 import img3 from '../../public/custom-buttons/button-lafat3.png';
 import img4 from '../../public/custom-buttons/button-lafat4.png';
@@ -32,23 +32,37 @@ function FooterMenu({menu, primaryDomainUrl}) {
 
   return (
     <>
-    <h1 className='footer-title'>LA UNICA FORMA DE AVERIGUARLO ES SENTIRLO</h1>
-    <div className='footer-container'>
-      <div className='footer-column'>
-        <button className='custom-button'><img src={img1} className='footer-image'/></button>
-        <button className='custom-button'><img src={img3} className='footer-image'/></button>
+      <h1 className="footer-title">
+        LA UNICA FORMA DE AVERIGUARLO ES SENTIRLO
+      </h1>
+      <div className="footer-container">
+        <div className="footer-column">
+          <button className="custom-button fb1">
+            <img src={img1} className="footer-image" />
+          </button>
+          <button className="custom-button fb2">
+            <img src={img3} className="footer-image" />
+          </button>
+        </div>
+        <div className="footer-column">
+          <button className="custom-button fb3">
+            <img src={img5} className="footer-image" />
+          </button>
+          <button className="custom-button fb4">
+            <img src={img6} className="footer-image" />
+          </button>
+        </div>
+        <div className="footer-column">
+          <button className="custom-button fb5">
+            <img src={img2} className="footer-image" />
+          </button>
+          <button className="custom-button fb6">
+            <img src={img4} className="footer-image" />
+          </button>
+        </div>
       </div>
-      <div className='footer-column'>
-      <button className='custom-button'><img src={img5} className='footer-image' /></button>
-      <button className='custom-button'><img src={img6} className='footer-image'/></button>
-      </div>
-      <div className='footer-column'>
-      <button className='custom-button'><img src={img2} className='footer-image' /></button>
-      <button className='custom-button'><img src={img4} className='footer-image'/></button>
-      </div>
-    </div>
-    <h2 className='footer-text'>contacto: lafatbordieu@gmail.com</h2>
-    { /*<nav className="footer-menu" role="navigation">
+      <h2 className="footer-text">contacto: lafatbordieu@gmail.com</h2>
+      {/*<nav className="footer-menu" role="navigation">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;
         // if the url is internal, we strip the domain
@@ -75,7 +89,7 @@ function FooterMenu({menu, primaryDomainUrl}) {
         );
       })}
     </nav> */}
-    <h2 className='footer-text'>built by Ita Fiorentino</h2>
+      <h2 className="footer-text">built by Ita Fiorentino</h2>
     </>
   );
 }

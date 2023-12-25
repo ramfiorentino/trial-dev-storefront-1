@@ -1,0 +1,1 @@
+import stk1 from '../../public/stickers/stickers-lafat1.png'

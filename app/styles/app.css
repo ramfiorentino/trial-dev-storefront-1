@@ -168,6 +168,7 @@ aside li {
     grid-gap: 0.5rem;
     justify-content: center;
   }
+
 }
 
 .header-menu-item {
@@ -213,16 +214,11 @@ aside li {
 */
 .footer {
   background: rgba(255, 255, 255, 0);
-  /*border-style: solid;
-  border-width: 2px;
-  border-color: black; */
-  margin-top: auto;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 
 .footer-title {
@@ -233,7 +229,7 @@ aside li {
   padding: 0rem 11rem 0rem 11rem;
   margin-top: 2rem;
   text-align: center;
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 
 .footer-text {
@@ -618,16 +614,41 @@ aside li {
 }
 
 .welcome-img {
-  height: 50rem;
+  height: 40rem;
   max-width: 100vw;
   padding-left: 2rem;
 }
 
 
+#welcome-section .custom-button {
+  height: 7rem;
+  /* border-style: solid;
+  border-width: 5px;
+  border-color: blue; */
+}
+
+.wb1 {
+  top: 7rem;
+  left: 3.5rem;
+  rotate: -7deg;
+}
+
+.wb2 {
+  top: 5rem;
+  left: 27rem;
+}
+
+.wb3 {
+  top: 7rem;
+  left: 46.5rem;
+  rotate: 7deg;
+}
+
 .portfolio-section {
   display: grid;
 	grid-template-columns: repeat(2, 1fr);
   height: auto;
+  place-items: center
 }
 
 .portfolio-colum {
@@ -659,41 +680,67 @@ aside li {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: auto;
+  width: 100%;
 }
 
 .footer-column {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  padding: 1rem;
   height: 20rem;
+  width: auto;
 }
 
 .footer-image {
-
-  width: 100%;
-  height: 100%; 
-  object-fit: contain;
-
+  width: 20rem;
 }
 
 .custom-button {
-  position: relative;
-  z-index: 1; 
-  top: 0;
-  left: 0;
-  appearance: none;
-
+  position: absolute;
   cursor: pointer;
   box-sizing: border-box;
   background-color: transparent;
   margin: 0em;
-  padding-block: 1px;
-  padding-inline: 6px;
   border-width: 0px;
   border-style: none;
 }
+
+.fb1 {
+  top: -6rem;
+  left: 3rem;
+  rotate: 10deg;
+}
+
+.fb2 {
+  top: 3rem;
+  left: 0rem;
+  rotate: -3deg;
+}
+
+.fb3 {
+  top: 2rem;
+  left: 0rem;
+}
+
+.fb4 {
+  top: 11rem;
+  left: 0rem;
+}
+
+.fb5 {
+  top: -6rem;
+  left: 3rem;
+  rotate: -10deg;
+}
+
+.fb6 {
+  top: 3rem;
+  left: 4rem;
+  rotate: 3deg;
+}
+
 
 #recommended-prod .custom-button {
   position: relative;
@@ -702,7 +749,4 @@ aside li {
   left: 40rem;
   rotate: 40deg; */
   width: 30vw;
-}
-
-#welcome-section .custom-button {
 }
