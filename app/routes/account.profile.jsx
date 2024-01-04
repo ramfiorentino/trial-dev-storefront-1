@@ -112,7 +112,7 @@ export default function AccountProfile() {
 
   return (
     <div className="account-profile">
-      <h2>My profile</h2>
+      <h1>My profile</h1>
       <br />
       <Form method="PUT">
         <legend>Personal information</legend>

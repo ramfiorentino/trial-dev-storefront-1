@@ -54,9 +54,9 @@ export default function Orders() {
   const {orders, numberOfOrders} = customer;
   return (
     <div className="orders">
-      <h2>
+      <h1>
         Orders <small>({numberOfOrders})</small>
-      </h2>
+      </h1>
       <br />
       {orders.nodes.length ? <OrdersTable orders={orders} /> : <EmptyOrders />}
     </div>

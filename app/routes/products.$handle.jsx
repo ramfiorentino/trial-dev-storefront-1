@@ -246,7 +246,7 @@ function ProductForm({product, selectedVariant, variants}) {
             : []
         }
       >
-        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+        {selectedVariant?.availableForSale ? 'Add to cart' : 'Out of stock'}
       </AddToCartButton>
     </div>
   );

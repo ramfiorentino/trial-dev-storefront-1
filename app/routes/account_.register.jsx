@@ -103,7 +103,7 @@ export default function Register() {
   return (
     <div className="login">
       <h1>Register.</h1>
-      <Form method="POST">
+      <Form className='register-form' method="POST">
         <fieldset>
           <label htmlFor="email">Email address</label>
           <input

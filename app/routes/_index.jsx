@@ -3,12 +3,14 @@ import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import button from '../../public/custom-buttons/button-lafat7.png';
+import WelcomeSection from '../components/WelcomeSection';
+import Portfolio from '../components/Portfolio';
 
 /**
  * @type {MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Lafat Bordieu | Home'}];
 };
 
 /**
@@ -31,7 +33,9 @@ export default function Homepage() {
 
   return (
     <div className="home">
+      <WelcomeSection/>
       <RecommendedProducts products={data.recommendedProducts} />
+      <Portfolio/>
     </div>
   );
 }

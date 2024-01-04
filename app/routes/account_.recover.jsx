@@ -49,7 +49,7 @@ export default function Recover() {
 
   return (
     <div className="account-recover">
-      <div>
+      <div className='account-recover-div'>
         {action?.resetRequested ? (
           <>
             <h1>Request Sent.</h1>
@@ -69,7 +69,7 @@ export default function Recover() {
               link to reset your password.
             </p>
             <br />
-            <Form method="POST">
+            <Form className='recover-form' method="POST">
               <fieldset>
                 <label htmlFor="email">Email</label>
                 <input

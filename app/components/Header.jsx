@@ -11,7 +11,7 @@ export function Header({header, isLoggedIn, cart}) {
   return (
     <header className="header">
       <NavLink prefetch="intent" to="/" className="brand-logo">
-        <img src="logo-lafat.png"/>
+        <img src="logo-lafat-op.gif"/>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -66,13 +66,13 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             style={activeLinkStyle}
             to={url}
           >
-            {item.title}
+            <h3>{item.title}</h3>
           </NavLink>
         ); 
       })}
 
       <a className="header-menu-item" href="#footer" id="footer-link">
-        CONTACTO 
+       <h3>CONTACTO</h3>
       </a>
     </nav>
   );
@@ -105,7 +105,7 @@ function User() {
   return (
     <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
     <div className='cart-badge'>
-    <img src="user-circle-svgrepo-com.svg"/>
+    <img src="user-icon.png"/>
     </div>
       </NavLink>
   );
@@ -115,7 +115,7 @@ function SearchToggle() {
   return (
   <a href="#search-aside">
     <div className='cart-badge'>
-    <img src="search-alt-2-svgrepo-com.svg"/>
+    <img src="search-icon.png"/>
     </div>
   </a>
   );
@@ -128,7 +128,7 @@ function CartBadge({count}) {
   return (
   <a href="#cart-aside">
     <div className='cart-badge'>
-    <img src="cart-smile-svgrepo-com.svg"/>
+    <img src="cart-icon.png"/>
     <div className='cart-count'>{count}</div>
     </div>
   </a>

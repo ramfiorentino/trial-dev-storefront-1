@@ -75,7 +75,7 @@ export default function Login() {
   return (
     <div className="login">
       <h1>Sign in.</h1>
-      <Form method="POST">
+      <Form className='login-form' method="POST">
         <fieldset>
           <label htmlFor="email">Email address</label>
           <input
