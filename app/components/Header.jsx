@@ -8,8 +8,10 @@ import {useRootLoaderData} from '~/root';
  */
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
+  
   return (
     <header className="header">
+      {/* CONDITIONALLY RENDER NAVLINK USING useScrollPosition React hook */}
       <NavLink prefetch="intent" to="/" className="brand-logo">
         <img src="logo-lafat-op.gif"/>
       </NavLink>
@@ -84,10 +86,10 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
 function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
       <User/>
       <SearchToggle />
       <CartToggle cart={cart} />
+      <HeaderMenuMobileToggle />
     </nav>
   );
 }

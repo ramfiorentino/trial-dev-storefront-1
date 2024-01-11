@@ -33,9 +33,9 @@ export default function Homepage() {
 
   return (
     <div className="home">
-      <WelcomeSection/>
-      <RecommendedProducts products={data.recommendedProducts} />
-      <Portfolio/>
+      <WelcomeSection />
+      <RecommendedProducts products={data.recommendedProducts} /> 
+      <Portfolio />
     </div>
   );
 }
@@ -70,43 +70,38 @@ function FeaturedCollection({collection}) {
  */
 function RecommendedProducts({products}) {
   return (
-    <div id='recommended-prod' className="recommended-products">
-     <button className='custom-button'><img src={button}/></button>
-      <section id="sectionPin">
-                <div class="pin-wrap-sticky">
-                  <div class="pin-wrap">
-                  <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {({products}) => (
-            <div className="recommended-products-grid">
-              
-              {products.nodes.map((product) => (
-                <div className='product-container'>
-                <Link
-                  key={product.id}
-                  className="recommended-product"
-                  to={`/products/${product.handle}`}
-                >
-                  <Image
-                    data={product.images.nodes[0]}
-                    aspectRatio="1/1"
-                    sizes="(min-width: 45em) 20vw, 50vw"
-                  />
-                  <h4>{product.title}</h4>
-                  <small>
-                    <Money data={product.priceRange.minVariantPrice} />
-                  </small>
-                </Link>
-                </div>
-              ))}
-
-            </div>
-          )}
-        </Await>
-      </Suspense>
+    <div className="recommended-products" id="recommended-prod">
+      <button className='custombtn-anim'>
+        <img src={button} />
+      </button>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Await resolve={products}>
+                {({products}) => (
+                  <div className="recommended-products-grid">
+                    {products.nodes.map((product) => (
+                      <div className="product-container">
+                        <Link
+                          key={product.id}
+                          className="recommended-product"
+                          to={`/products/${product.handle}`}
+                        >
+                          <Image
+                            data={product.images.nodes[0]}
+                            aspectRatio="1/1"
+                            sizes="(min-width: 45em) 20vw, 50vw"
+                          />
+                          <h4>{product.title}</h4>
+                          <small>
+                            <Money data={product.priceRange.minVariantPrice} />
+                          </small>
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                </div>
-              </section>
+                )}
+              </Await>
+            </Suspense>
+
     </div>
   );
 }

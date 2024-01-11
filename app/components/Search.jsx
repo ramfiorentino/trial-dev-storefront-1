@@ -37,7 +37,7 @@ export function SearchForm({searchTerm}) {
   }, []);
 
   return (
-    <Form method="get">
+    <Form method="get" className='search-form'>
       <input
         defaultValue={searchTerm}
         name="q"

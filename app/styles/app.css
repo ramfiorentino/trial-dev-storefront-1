@@ -1,5 +1,5 @@
 :root {
-  --aside-width: 400px;
+  --aside-width: 300px;
   --cart-aside-summary-height-with-discount: 300px;
   --cart-aside-summary-height: 250px;
   --grid-item-width: 355px;
@@ -38,7 +38,7 @@ aside header {
   display: flex;
   height: var(--header-height);
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 3rem 0 2rem;
 }
 
 aside header h3 {
@@ -137,19 +137,39 @@ aside li {
 
 .header {
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: #ffffff00;
   display: flex;
   height: var(--header-height);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
+
+/* Small screens (mobile) */
+@media (max-width: 576px) {
+  .header {
+    align-items: center; /* Center items horizontally */
+    flex-direction: column; /* Stack items vertically */
+    height: auto;
+    }
+
+    .header > *:not(:first-child) {
+      padding-top: 1rem;
+    }
+
+    .header-ctas > :last-child {
+      margin: 0rem;
+    }
+
+    
+}
+
+
 .header-menu-mobile-toggle {
-  @media (min-width: 48em) {
+  @media (min-width: 992px) {
     display: none;
   }
 }
@@ -163,7 +183,7 @@ aside li {
 .header-menu-desktop {
   display: none;
   grid-gap: 5rem;
-  @media (min-width: 48em) {
+  @media (min-width: 992px) {
     display: flex;
     grid-gap: 0.5rem;
     justify-content: center;
@@ -180,13 +200,20 @@ aside li {
   align-items: center;
   display: flex;
   grid-gap: 1rem;
-  margin-left: auto;
+}
+
+@media (max-width: 992px) {
+  .header-ctas h3 {
+    font-size: 2rem;
+    margin: 0rem 1rem 0rem 1rem;
+  }
 }
 
 
 .cart-badge {
   display: flex;
   height: 4rem;
+  position: relative;
 }
 
 .cart-count{
@@ -208,6 +235,7 @@ aside li {
   font-size: 11px;
 }
 
+
 /*
 * --------------------------------------------------
 * components/Footer
@@ -215,7 +243,6 @@ aside li {
 */
 .footer {
   background: rgba(255, 255, 255, 0);
-  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -226,23 +253,43 @@ aside li {
   color: rgb(0, 0, 0);
   font-weight: 400;
   letter-spacing: 2px;
-  line-height: 6rem;
-  padding: 0rem 11rem 0rem 11rem;
-  margin-top: 2rem;
+  line-height: 5rem;
+  padding: 0rem 15rem 0 15rem;
+  margin-top: 12rem;
+  margin-bottom: 10rem;
   text-align: center;
-  font-size: 4.5rem;
+  font-size: 10vh;
+
+  @media (min-width: 576px){
+    font-size: 15vh;
+    line-height: 7rem;
+  }
 }
 
-.footer-text {
-  color: black;
-  font-weight: 400;
-  font-size: 12px;
-  margin: 0;
+.footer-text1 {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  font-size: 1.3rem;
+  word-spacing: 2rem;
+}
+
+.footer-text2 {
+  display: flex;
+  width: 100%;
+  height: 2rem;
+  align-items: center;
+  color: blue;
+  font-size: 1.3rem;
+  word-spacing: 2rem;
 }
 
 .footer-menu-missing {
   display: inline-block;
-  margin: 1rem;
+  margin: 0rem;
 }
 
 .footer-menu {
@@ -267,19 +314,25 @@ aside li {
 * --------------------------------------------------
 */
 .cart-main {
-  height: 100%;
+  height: 50vh;
   max-height: calc(100vh - var(--cart-aside-summary-height));
   overflow-y: auto;
   width: auto;
+  padding: 0 3rem 0 1rem;
 }
 
 .cart-main.with-discount {
   max-height: calc(100vh - var(--cart-aside-summary-height-with-discount));
 }
 
+.cart-details {
+}
+
+
 .cart-line {
   display: flex;
   padding: 0.75rem 0;
+  flex-direction: column;
 }
 
 .cart-line img {
@@ -298,6 +351,8 @@ aside li {
   padding-top: 0.75rem;
   position: absolute;
   width: calc(var(--aside-width) - 40px);
+
+  background-color: white;
 }
 
 .cart-line-quantiy {
@@ -322,6 +377,7 @@ aside li {
 .predictive-search {
   height: calc(100vh - var(--header-height) - 40px);
   overflow-y: auto;
+  padding-left: 1rem;
 }
 
 .predictive-search-form {
@@ -331,7 +387,10 @@ aside li {
 }
 
 .predictive-search-result {
-  margin-bottom: 2rem;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .predictive-search-result h5 {
@@ -359,6 +418,60 @@ aside li {
 .search-results-item {
   margin-bottom: 0.5rem;
 }
+
+.search {
+  margin: 0 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.search h1 {
+  font-size: 10vw;
+  margin: 1rem 0 1rem 0;
+}
+
+.search h2 {
+  font-size: 7vw;
+  margin: 1rem 0 1rem 0;
+}
+
+.search span {
+  font-size: 5vw;
+}
+
+@media (min-width: 768px) {
+  .search h1 {
+    font-size: 6vw;
+    margin: 1rem 0 1rem 0;
+  }
+  
+  .search h2 {
+    font-size: 4vw;
+    margin: 1rem 0 1rem 0;
+  }
+  
+  .search span {
+    font-size: 2vw;
+  }
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form button {
+  margin: 0;
+}
+
+.search-form input {
+  margin: 0;
+}
+
 
 /*
 * --------------------------------------------------
@@ -389,77 +502,49 @@ aside li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0rem 0rem 0rem 0rem;
-}
-
-.recommended-products-title {
-  margin: 0rem;
+  height: auto;
+  margin-bottom: 10rem;
 }
 
 .recommended-products-grid {
-  margin: 0rem;
-  width: 100%;
-  height: 60vh;
   display: flex;
-  justify-content: start;
-}
-
-.recommended-product img {
-  height: 80vh;
-  width: auto;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-container {
-  width: auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  margin: 1rem;
+  padding: 0rem;
 }
 
-
-@keyframes move {
-	to {
-		/* Move horizontally so that right edge is aligned against the viewport */
-		transform: translateX(calc(-100% + 100vw));
-		left: 0px;
-	}
+.recommended-products button {
+  display: flex;
+  rotate: 3deg;
+  border-style: none;
+  height: min-content;
 }
 
-#sectionPin {
-	/* Stretch it out, so that we create room for the horizontal scroll animation */
-	height: 500vh;
-	overflow: visible; /* To make position sticky work … */
-  margin: 0;
-  padding: 0;
-	view-timeline-name: --section-pin-tl;
-	view-timeline-axis: block;
+.recommended-products button:hover {
+  background-color: transparent;
 }
 
-.pin-wrap-sticky {
-	/* Stick to Top */
-	height: 100vh;
-	width: 250vmax;
-	position: sticky;
-	top: 0;
-
-	width: 100vw;
-	overflow-x: hidden;
+.recommended-products button img {
+  width: 75vw;
+  height: auto;
+  @media (min-width: 768px){
+    width: 60vw;
+  }
+  @media (min-width: 992px){
+    width: 50vw;
+  }
+  @media (min-width: 1200px){
+    width: 40vw;
+  }
 }
 
-.pin-wrap {
-	height: 100vh;
-	width: 250vmax;
-
-	/* Hook animation */
-	will-change: transform;
-	animation: linear move forwards;
-
-	/* Link animation to view-timeline */
-	animation-timeline: --section-pin-tl;
-	animation-range: contain 0% contain 100%;
-}
 
 
 /*
@@ -467,6 +552,38 @@ aside li {
 * routes/collections._index.tsx
 * --------------------------------------------------
 */
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 20rem;
+
+}
+
+.collections, .collection-item {
+  display: flex;
+  flex-direction: column;
+  margin: 5rem 5rem 20rem 5rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.collection-item h5 {
+  width: fit-content;
+}
+
+.collection-item img {
+  max-width: 15rem;
+  border-style: solid;
+  border-width: 2px;
+}
+.collection-item:hover {
+  max-width: 14.6rem;
+}
+
 .collections-grid {
   display: grid;
   grid-gap: 1.5rem;
@@ -608,78 +725,260 @@ aside li {
 
 /*
 * --------------------------------------------------
-* CUSTOM COMPONENTS
+* CUSTOM BUTTONS
 * --------------------------------------------------
 */
 
-.welcome-section-div {
-  display: flex;
-  margin-bottom: 5rem;
-  padding: 0rem 7rem 0rem 7rem;
+.custom-button {
+  position: absolute;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: transparent;
+  margin: 0em;
+  border-width: 0px;
+  border-style: none;
 }
+
+.custom-button:hover {
+  border-color: transparent;
+  color: black;
+  background-color: transparent;
+}
+
+/*
+* --------------------------------------------------
+* WELCOME SECTION
+* --------------------------------------------------
+*/
+
+.welcome-section-animation {
+  height: auto;
+  margin: 0 0 0 0;
+}
+
 
 .welcome-img {
   height: 40rem;
   max-width: 100vw;
-  padding-left: 2rem;
+  padding-left: 1.3rem;
+
+  @media (min-width: 768px){
+    height: 50rem;
+  }
+  @media (min-width: 992px){
+    padding-left: 2rem;
+    height: 60rem;
+  }
+  @media (min-width: 1200px){
+    height: 70rem;
+  }
+  @media (min-width: 1920px){
+    margin: 3rem 0 3rem 0;
+    height: 80rem;
+  }
+}
+
+.welcome-section-btn-container {
+  display: flex;
+  position: relative;
 }
 
 
-#welcome-section .custom-button {
-  height: 7rem;
-  /* border-style: solid;
-  border-width: 5px;
-  border-color: blue; */
+.custom-button-wb1 {
+  position: absolute;
+  height: auto;
+  width: 50vw;
+  background-color: transparent;
+  border-style: none;
+  top: 2vh;
+  left: 1vw;
+  rotate: -5deg;
+
+  @media (min-width: 768px){
+    width: 35vw;
+    top: 10vh;
+    left: 1vw;
+    rotate: 10deg;
+  }
+  @media (min-width: 1200px){
+    width: 40vw;
+  }
+  @media (min-width: 1920px){
+    width: 25vw;
+    left: 5vw;
+    top: 10vh;
+    rotate: -10deg;
+  }
+
+}
+.custom-button-wb1:hover {
+  background-color: transparent;
 }
 
-.wb1 {
-  top: 7rem;
-  left: 3.5rem;
-  rotate: -7deg;
+.custom-button-wb2 {
+  position: absolute;
+  height: auto;
+  width: 50vw;
+  max-width: 15rem;
+  background-color: transparent;
+  border-style: none;
+  top: 75vh;
+  left: 25vw;
+  rotate: -5deg;
+
+  @media (min-width: 576px){
+    width: 45vw;
+    top: 75vh;
+    left: 30vw;
+  }
+
+  @media (min-width: 768px){
+    width: 50vw;
+    top: 0;
+    left: 38vw;
+    rotate: 2deg;
+
+  }
+
+}
+.custom-button-wb2:hover {
+  background-color: transparent;
 }
 
-.wb2 {
-  top: 5rem;
-  left: 27rem;
+.custom-button-wb3 {
+  position: absolute;
+  height: auto;
+  width: 50vw;
+  background-color: transparent;
+  border-style: none;
+  top: 12vh;
+  right: 5vw;
+  rotate: 15deg;
+
+
+  @media (min-width: 576px){
+    top: 10vh;
+  }
+  @media (min-width: 768px){
+    width: 38vw;
+    top: 12vh;
+    right: 5vw;
+    rotate: -15deg;
+  }
+
+}
+.custom-button-wb3:hover {
+  background-color: transparent;
 }
 
-.wb3 {
-  top: 7rem;
-  left: 46.5rem;
-  rotate: 7deg;
+.portfolio-title {
+  font-family: Lafat;
+  height: 1.5rem;
+  background-color: blue;
+  color: white;
+  align-content: center;
+  word-spacing: 2rem;
+}
+
+@keyframes infiniteScroll {
+  from {transform: translateX(0)}
+  to {transform: translateX(-50%)}
+}
+.container-animation-portfolio {
+  width: 100%;
+  overflow-x: hidden;
+}
+.horizontal-scrolling-items {
+  display: flex;
+  font-size: 40px;
+  width: 2600px;
+  animation-name: infiniteScroll;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.horizontal-scrolling-items__item {
+  white-space: nowrap;
+  font-family: Lafat;
+  background-color: blue;
+  color: white;
+  word-spacing: 2rem;
+}
+
+@media (max-width: 576px) {
+  .portfolio-section {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .portfolio-section {
-  display: grid;
-	grid-template-columns: repeat(2, 1fr);
+  display: flex;
   height: auto;
-  place-items: center
+  justify-content: center;
 }
 
 .portfolio-colum {
   display: flex;
 	flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  flex-wrap: wrap;
 }
 
 .port-img-div {
   width: auto;
-  margin: 5rem;
+  margin: 1rem;
 }
 
 .portfolio-img {
-  width: 20rem;
+  width: 30vw;
 }
 
-.port-img-div {
-  width: auto;
-  margin: 5rem;
+
+/* Three column layout */
+.columns {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 }
 
-.portfolio-img {
-  width: 20rem;
+.column {
+	display: flex;
+	flex-direction: column;
 }
+
+/* Shift entire column up, but not so much that it goes out of view */
+.column-reverse {
+	transform: translateY(calc(-100% + 100vh));
+}
+
+/* As we're about to shift content out of .columns, we need it to hide its overflow */
+.columns {
+	overflow-y: hidden;
+}
+
+/* Flip item order in reversed columns */
+.column-reverse {
+	flex-direction: column-reverse;
+}
+
+/* Set up Animation */
+@keyframes adjust-position {
+	/* Start position: shift entire column up, but not so that it goes out of view */
+	from {
+		transform: translateY(calc(-100% + 100vh));
+	}
+
+	/* End position: shift entire column down, but not so that it goes out of view */
+	to {
+		transform: translateY(calc(100% - 100vh));
+	}
+}
+
+/* Hook our animation with the timeline to our columns */
+.column-reverse {
+	animation: adjust-position linear forwards;
+	animation-timeline: scroll(root block);
+}
+
 
 .footer-container {
   display: grid;
@@ -702,25 +1001,9 @@ aside li {
   width: 20rem;
 }
 
-.custom-button {
-  position: absolute;
-  cursor: pointer;
-  box-sizing: border-box;
-  background-color: transparent;
-  margin: 0em;
-  border-width: 0px;
-  border-style: none;
-}
-
-.custom-button:hover {
-  border-color: transparent;
-  color: black;
-  background-color: transparent;
-}
-
 .fb1 {
   top: -6rem;
-  left: 3rem;
+  left: 5rem;
   rotate: 10deg;
 }
 
@@ -732,34 +1015,31 @@ aside li {
 
 .fb3 {
   top: 2rem;
-  left: 0rem;
+  left: 1rem;
+  rotate: -2deg;
 }
 
 .fb4 {
   top: 11rem;
-  left: 0rem;
+  left: 4rem;
+  rotate: 2deg;
+}
+
+.fb4 img {
+  height: 5rem;
+  width: auto;
 }
 
 .fb5 {
   top: -6rem;
-  left: 3rem;
+  left: 0rem;
   rotate: -10deg;
 }
 
 .fb6 {
   top: 3rem;
-  left: 4rem;
+  left: 2rem;
   rotate: 3deg;
-}
-
-
-#recommended-prod .custom-button {
-  position: relative;
-  /* z-index: 1; 
-  top: 40rem;
-  left: 40rem;
-  rotate: 40deg; */
-  width: 30vw;
 }
 
 .login, .account, .account-recover, .account-recover-div {
@@ -829,5 +1109,141 @@ aside header h3 {
 .discountCode-div button {
   font-size: 1rem;
   padding: 0.4rem 0.8rem 0.4rem 0.8rem;
-  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+
+/*
+* --------------------------------------------------
+* ANIMATIONS
+* --------------------------------------------------
+*/
+
+.custombtn-anim {
+  /* Set initial rotation */
+  transform: rotate(0deg);
+  /* Apply transition for smooth hover effect */
+  transition: transform 0.3s ease-in-out;
+}
+
+.custombtn-anim:hover {
+  /* Increase the rotation speed on hover */
+  transition: transform 0.1s ease-in-out;
+}
+
+@keyframes rotateButton {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.custombtn-anim {
+  /* Apply the keyframe animation */
+  animation: rotateButton 1s infinite;
+}
+
+.custombtn-anim:hover {
+  /* Increase the rotation speed on hover */
+  animation: rotateButton 0.2s infinite;
+}
+
+
+@keyframes productReveal {
+  0% {
+    transform: rotate(-3deg);
+    opacity: 0;
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 100;
+  }
+}
+
+.product-container{
+  animation: productReveal 2s;
+
+}
+
+@keyframes portfolioReveal {
+  0% {
+    opacity: 0;
+  }
+  50% {
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.portfolio-img{
+  animation: portfolioReveal 2s;
+}
+
+.footer-stickers{
+  height: auto;
+  position: relative;
+}
+
+.footer-sticker1{
+  position: absolute;
+  width: 40vw;
+  fill: rebeccapurple;
+  rotate: 35deg;
+  top: 3rem;
+  animation: colorSticker1 1.4s steps(1) infinite;
+}
+
+.footer-sticker2{
+  position: absolute;
+  width: 30vw;
+  fill: pink;
+  top: 15rem;
+  right: 15vw;
+  animation: colorSticker2 1.4s steps(1) infinite;
+}
+
+@keyframes colorSticker2 {
+  0% {
+    fill: rgb(0, 255, 0); /* Second color */
+  }
+  25% {
+    fill: rgb(255, 0, 0); /* Third color */
+  }
+  50% {
+    fill: rgb(255, 179, 0); /* Back to initial color */
+  }
+  75% {
+    fill: rgb(255, 179, 0); /* Initial color */
+  }
+  100% {
+    fill: rgb(0, 128, 255); /* First color */
+  }
+}
+
+@keyframes colorSticker1 {
+  0% {
+    fill: rgb(255, 179, 0); /* Initial color */
+  }
+  25% {
+    fill: rgb(0, 128, 255); /* First color */
+  }
+  50% {
+    fill: rgb(0, 255, 0); /* Second color */
+  }
+  75% {
+    fill: rgb(255, 0, 0); /* Third color */
+  }
+  100% {
+    fill: rgb(255, 179, 0); /* Back to initial color */
+  }
 }
