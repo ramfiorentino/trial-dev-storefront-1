@@ -1,15 +1,15 @@
-# NOTICE: Project in development. Production date estimated for late 2024. 
+# NOTICE: Project in development. Production estimated for late 2024. 
 
 
 
-# Hydrogen template: Skeleton
+Hydrogen template: Skeleton
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **minimal setup** of components, queries and tooling to get started with Hydrogen.
+Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a *minimal setup* of components, queries and tooling to get started with Hydrogen.
 
 [Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
 [Get familiar with Remix](https://remix.run/docs/en/v1)
 
-## What's included
+What's included
 
 - Remix
 - Hydrogen
@@ -21,9 +21,9 @@ Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dov
 - TypeScript and JavaScript flavors
 - Minimal setup of components and routes
 
-## Getting started
+Getting started
 
-**Requirements:**
+Requirements:
 
 - Node.js version 16.14.0 or higher
 
@@ -31,13 +31,13 @@ Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dov
 npm create @shopify/hydrogen@latest
 ```
 
-## Building for production
+Building for production
 
 ```bash
 npm run build
 ```
 
-## Local development
+Local development
 
 ```bash
 npm run dev
