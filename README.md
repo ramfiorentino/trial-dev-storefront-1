@@ -1,4 +1,4 @@
-# Website will be live by xmas :)
+# NOTICE: Project in development. Production date estimated for late 2024. 
 
 
 
